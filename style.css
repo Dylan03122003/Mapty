@@ -1,0 +1,197 @@
+/* IMPORTANT */
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: rgb(214, 222, 224);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+  height: 100vh;
+  background-color: #fff;
+  padding: 2.5rem;
+  display: flex;
+  overscroll-behavior-y: none; /*NOT EFFECT*/
+}
+/* GENERAL */
+a:link,
+a:visited {
+  color: var(--color-brand--1);
+}
+/* SIDEBAR */
+.sidebar {
+  flex-basis: 50rem; /*IMPORTANT change the witdh of the div*/
+  background-color: var(--color-dark--1);
+  padding: 3rem 5rem 4rem 5rem;
+  display: flex;
+  flex-direction: column;
+}
+.logo {
+  height: 5.2rem;
+  align-self: center;
+  margin-bottom: 4rem;
+}
+.workouts {
+  list-style: none;
+  height: 77vh;
+  overflow-y: scroll; /*IMPORTANT*/
+  overflow-x: hidden; /*IMPORTANT*/
+}
+.workouts::-webkit-scrollbar {
+  /*IMPORTANT exlude the scrollbar*/
+  width: 0;
+}
+.workout {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 1.5rem 2.25rem;
+  margin-bottom: 1.75rem;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.75rem 1.5rem;
+}
+.workout--running {
+  border-left: 5px solid var(--color-brand--2);
+}
+.workout--cycling {
+  border-left: 5px solid var(--color-brand--1);
+}
+.workout__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  grid-column: 1/ -1; /*IMPORTANT span entire width*/
+}
+.workout__details {
+  display: flex;
+  align-items: baseline; /*NOT EFFECT*/
+}
+.workout__icon {
+  font-size: 1.8rem;
+  margin-right: 0.2rem;
+  height: 0.28rem;
+}
+.workout__value {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+.workout__unit {
+  font-size: 1.1rem;
+  color: var(--color-light--1);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.form {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 1.5rem 2.75rem;
+  margin-bottom: 1.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2.5rem;
+  /* Match height and activity boxes */
+  height: 9.25rem;
+  transition: all 0.5s, transform 1ms; /*NOT EFFECT*/
+}
+.form.hidden {
+  transform: translateY(-30rem);
+  height: 0;
+  padding: 0 2.25rem;
+  margin-bottom: 0;
+  opacity: 0;
+}
+.form__row {
+  display: flex;
+  align-items: center;
+}
+/* JavaScript */
+.form__row--hidden {
+  display: none;
+}
+.form__label {
+  flex: 0 0 50%; /*grow 0, shrink 0, basic 50%*/
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.form__input {
+  width: 100%; /*IMPORTANT fix the input which is so big => make it reasonable*/
+  padding: 0.3rem 1.1rem;
+  font-family: inherit; /*IMPORTANT the font-type is not inherited by default*/
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-light--3);
+  transition: all 0.2s; /*happen because of .form__input:focus */
+}
+.form__input:focus {
+  outline: none;
+  background-color: #fff;
+}
+.form__btn {
+  display: none;
+}
+.copyright {
+  margin-top: auto; /*NOT EFFECT*/
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--color-light--1);
+}
+.twitter-link:link,
+.twitter-link:visited {
+  color: var(--color-light--1);
+  transition: all 0.2s; /*IMPORTANT happen because of hover and active*/
+}
+.twitter-link:hover,
+.twitter-link:active {
+  color: var(--color-light--2);
+}
+#map {
+  height: 100%;
+  background-color: var(--color-light--1);
+  flex: 1; /*IMPORTANT take up the remaining space*/
+}
+/* Popup width is defined in JS using options */
+/* JavaScript */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+/* JavaScript */
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.5rem;
+}
+/* JavaScript */
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-dark--1);
+}
+/* JavaScript */
+
+.running-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--2);
+}
+/* JavaScript */
+
+.cycling-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--1);
+}
